@@ -2,7 +2,7 @@
 
 - This is the landing page project readme.
 
-## Code Owner Link and edited from:
+## Code Owner Link where edited from:
 
 - https://github.com/borakuskucu/Udacity-Landing-Page-Project/blob/f631249293799ebea314da8681521969e032fe51/js/Main.js
 
