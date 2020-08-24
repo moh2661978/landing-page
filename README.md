@@ -2,15 +2,21 @@
 
 - This is the landing page project readme.
 
-## Code Owner Link where edited from:
+## Helping resources
 
-- https://github.com/borakuskucu/Udacity-Landing-Page-Project/blob/f631249293799ebea314da8681521969e032fe51/js/Main.js
+- Starter code taken from udacity [repository](https://github.com/udacity/fend/tree/refresh-2019/projects/landing-page).
+- I am Getting help from a Previous Project but not a palagrism and many more links and websites & I learned a lot through this project:
+- (<https://github.com/borakuskucu/Udacity-Landing-Page-Project/blob/f631249293799ebea314da8681521969e032fe51/js/Main.js>)
+- (<https://cs50.harvard.edu/web/2020/>)
+- (<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach>)
+- (<https://stackoverflow.com/questions/41085068/how-to-select-all-links-inside-of-nav-element>)
+- (<https://api.jquery.com/children/>)
+- (<https://www.w3schools.com/howto/howto_js_scroll_to_top.asp>)
 
 ## Description
 
 - The code in this repository is meant to satisfy the project # 1 rubric of the Web Developer Professional.
-- Landing page is the conversion of a static page to a page that allows some sort of interaction. The dynamicity is achieved through javascript.
-- Starter code taken from udacity [repository](https://github.com/udacity/fend/tree/refresh-2019/projects/landing-page).
+- Landing page is allows some sort of interaction. The dynamicity is achieved through javascript.
 
 ## The languages used
 
@@ -20,11 +26,11 @@
 
 ## The Functionalities
 
-- The navigation
-- The dynamic active class
+- The dynamic navigation
+- The dynamic active class for sections
 - The scrolling effect
 - This project has the scope of converting a static web page in a single interactive page.
-- It uses javascript to dynamically create navbar links based on the content, when a section is in the viewport it show the active state of that section.
+- It uses javascript to dynamically create navbar links based on the content, when a section is in view it show the active state of that section.
 
 ## What did we learned
 
