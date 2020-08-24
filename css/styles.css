@@ -2,15 +2,18 @@
  *
  * CSS written based on SMACSS architecture.
  * To learn more, visit: http://smacss.com/
- * 
- * For simplicity, no reset or normalize is added. 
- * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
- *
+ 
 */
+
 * {
     padding: 0;
     margin: 0;
 }
+
+/* for smooth scrolls over all the document*/
+html {
+    scroll-behavior: smooth;
+  }  
 
 /* ---- Base Rules ---- */
 body {
@@ -67,20 +70,20 @@ section {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
+
 .navbar__menu ul {
-    padding: 2%;
     padding-left: 0;
     margin: 0;
-    text-align: center;
+    text-align: right;
 }
 
 .navbar__menu li {
     display: inline-flex;
-    padding-left: 2%;
 }
 
 .navbar__menu .menu__link {
     display: inline-block;
+    padding: 1em;
     font-weight: bold;
     text-decoration: none;
     color: #000;
@@ -88,7 +91,7 @@ section {
 
 .navbar__menu .menu__link:hover {
     background: #33cc33;
-    color: #fff;
+    color: #fff !important;
     transition: ease 0.3s all;
     cursor: pointer;
 }
@@ -98,6 +101,7 @@ section {
     background: #fff;
     position: fixed;
     top: 0;
+    min-height: 3em;
     width: 100%;
     z-index: 5;
     transition: top 0.5s;
@@ -137,41 +141,28 @@ section:nth-of-type(even) .landing__container {
 
 /* Scroll page to top button  */
 .btn {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Fixed/sticky position */
-    bottom: 20px;
-    /* Place the button at the bottom of the page */
-    right: 30px;
-    /* Place the button 30px from the right */
-    z-index: 99;
-    /* Make sure it does not overlap */
-    border: none;
-    /* Remove borders */
-    outline: none;
-    /* Remove outline */
-    background-color: rgba(17, 0, 255, 0.2);
-    /* Set a background color */
-    color: white;
-    /* Text color */
-    padding: 15px;
-    /* Some padding */
-    border-radius: 10px;
-    /* Rounded corners */
-    font-size: 18px;
-    /* Increase font size */
-    opacity: 0.7;
-    /* adds transparency to the background of the button */
-    transition: opacity 0.3s;
-    /* transition */
+    display: none;    /* Hidden by default */
+    position: fixed;     /* Fixed/sticky position */
+    z-index: 900;    /* Make sure it does not overlap */
+    bottom: 130px;     /* Place the button at the bottom of the page */
+    right: 20px;    /* Place the button 30px from the right */
+    width: 40px; /*it's width*/
+    background: rgba(0, 13, 60, 0.7);     /* Set a background color */
+    font-size: 12px;    /* Increase font size */
+    color: white;/* Text color */
+    border: none;/* Remove borders */
+    text-align: center; /*text center*/
+    border-radius: 10%;     /* Rounded corners */
+    opacity: 0.3;     /* adds transparency to the background of the button */
+    box-shadow: 0px 0px 5px 1px; /*shadows around the icon*/
+    transition: opacity 0.3s;     /* transition */
+    outline: none;     /* Remove outline */
+    padding: 15px;     /* Some padding */
 }
 
-/* when hoover over the go to top button*/
 .btn:hover {
     opacity: 1;
     cursor: pointer;
-
 }
 
 /* Background Circles */
@@ -234,9 +225,10 @@ section:nth-of-type(3n + 1) .landing__container::after {
     transition: ease 0.5s all;
 }
 
+
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
-/* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
+
 section.your-active-class {
     background: rgb(0, 0, 0);
     background: linear-gradient(0deg, rgba(51, 204, 51, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
@@ -262,3 +254,4 @@ section.your-active-class .landing__container::after {
         transform: rotate(360deg) translate(-1em) rotate(-360deg);
     }
 }
+
