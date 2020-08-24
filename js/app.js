@@ -1,34 +1,37 @@
-/**
- * 
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- * 
- * Dependencies: None
- * 
- * JS Version: ES2015/ES6
- * 
- * JS Standard: ESlint
- * 
-*/
+// build the nav
 
-/**
- * Define Global Variables
- * 
-*/
-// navigation global var
-const navigation = document.getElementById('navbar__list');
-// sections global var
-const sections = document.querySelectorAll('section');
+/* Strategy:
+get the navbar list by ID & get the sections by querySelectAll to allow me loop in the return array and then pull out the data to li in the navbar list by: assign the array of sections to li and creat li in navbar
+append the sections to the li and add the newly created element and its content into the DOM */
+const menu = document.getElementById('navbar__list'); // ul inside nav tag
+const sections = document.querySelectorAll('section'); // all section tag
+// building the navbar
+function buildMenuBar() {
+    // initialize an li variable to put it later in the navigation to manipulate the loop list of sections names into it and using let for mutating the array
+    let navList = document.createElement('li');
+    //let firstSecLink = true;
+    // looping over all sections by the method array.forEach(element => {...}); getting help from the next urls:
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+    //https://stackoverflow.com/questions/41085068/how-to-select-all-links-inside-of-nav-element
+    //https://api.jquery.com/children/
 
-/**
- * End Global Variables
- */
+    sections.forEach((section) => {
+        // get the section id
+        const secid = section.getAttribute('id');
+        // get the sections dataset Attribute
+        const secDataNav = section.getAttribute('data-nav');
+        // looping in navList = navList + li + anchor every section name and id
+        navList += `<a href='#${secid}' class='menu__link'${secDataNav}>${secDataNav}</a>`;
 
+        // Manipulating the DOM by appending all sections titles to the navigation in a dynamic way
+        menu.innerHTML = navList;
+    });
+};
+buildMenuBar();
 
-//Get the go to the top button:
-mybutton = document.getElementById("myBtn");
+//Building the go to the top button:
+//https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
+mybutton = document.getElementById('myBtn');
 
 // When the user scrolls down 40px from the top of the document, show the button
 window.onscroll = function () { scrollFunction() };
@@ -40,99 +43,61 @@ function scrollFunction() {
         mybutton.style.display = "none";
     }
 }
-
-// When the user clicks on the button, scroll to the top of the document
+// call the function When the user clicks on the button, scroll to the top of the document
 function topFunction() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
-
-/**
- * Begin Main Functions
- * 
-*/
-
-
-// build the nav
-
-const navBuilder = () => {
-
-    let navUI = '';
-    let firstLink = true;
-
-    // looping over all sections
-    sections.forEach(section => {
-
-        const sectionID = section.id;
-        const sectionDataNav = section.dataset.nav;
-
-        navUI += `<li>
-        <a href="#${sectionID}" class="menu__link">
-        ${sectionDataNav}
-        </a>
-        </li>`;
-
-    });
-    // append all elements to the navigation
-    navigation.innerHTML = navUI;
-
 };
-
-navBuilder();
 
 // Add class 'active' to section when near top of viewport
-// Get element's position in the viewport
-const offset = (section) => {
-    return Math.floor(section.getBoundingClientRect().top);
-};
+//Start building the active class
 
-// remove the active class
-const removeActive = (section) => {
+/*As a start, we’ll listen for the 'scroll' event on the document to request the current scrollY position each time the user scrolls. I found that every 300 px the top of section get appeared
+just helper function
+*/
+document.addEventListener('scroll', () => {
+    document.documentElement.dataset.scroll = window.scrollY;
+});
+/*to use the getBoundingClientRect method I will creat a variable to store back the dom rect object which will be returned to me
+getting the section position in the window
+to know an element's position after it transformed by CSS, or even still in transition animation, it is the best choice (maybe the only way).
+*/
+// start by return the top rect and determine the position of the section in the viewport
+const secRect = (section) => {
+    return section.getBoundingClientRect().top;
+};
+// remove the active class because of section 1 is by default has this class
+const classRemove = (section) => {
+    //remove the active class styling state
     section.classList.remove('your-active-class');
-    section.style.cssText = "background-color: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%)";
+    //adding style to the all non active sections
+    section.style.add = ('section.your-active-class');
 };
 
 // adding the active class with a green background color
-const addActive = (conditional, section) => {
-    if (conditional) {
+const classAdd = (isInView, section) => {
+    if (isInView) {
+        //remove the active class styling state
         section.classList.add('your-active-class');
-        section.style.cssText = "background-color: lightblue;";
-    };
+        //adding style to the active section
+        section.style.add = ('section.your-active-class');
+    }
 };
 
-//implementating the actual section activation function
-const sectionActivation = () => {
-    // Will loop on all the sections
+//Manipulating the dom to set the active section function by looping over the sections
+const setBounding = () => {
+    // I Will loop on all the sections
     sections.forEach(section => {
-        const elementOffset = offset(section);
-        // work on the condition to add active function
-        inviewport = () => elementOffset < 300 && elementOffset >= -300;
-
-        removeActive(section);
-        addActive(inviewport(), section);
+        //creating a variable to hold the returning top Rect from the previous function
+        const secReturn = secRect(section);
+        // Ask if is in view to allow adding the active section function
+        isInView = () => secReturn < 300 && secReturn >= -300;
+        // remove from the previuos section
+        classRemove(section);
+        // add to the next section
+        classAdd(isInView(), section);
     });
 };
-// add eventlisner so when ever scroll the function get implemented
-window.addEventListener('scroll', sectionActivation);
 
-// Scroll to anchor ID using scrollTO event
-const scrolling = () => {
-
-    const links = document.querySelectorAll('.navbar__menu a');
-    links.forEach(link => {
-        link.addEventListener('click', () => {
-            for (i = 0; i < sections; i++) {
-                sections[i].addEventListener("click", sectionScroll(link));
-            }
-        });
-    });
-
-};
-
-scrolling();
-
-
-/**
- * End Main Functions
- *
-*/
+// add eventlisner to scroll so that the function get implemented
+window.addEventListener('scroll', setBounding);
