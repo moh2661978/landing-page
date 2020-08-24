@@ -6,12 +6,21 @@
 
 - Starter code taken from udacity [repository](https://github.com/udacity/fend/tree/refresh-2019/projects/landing-page).
 - I am Getting help from a Previous Project but not a palagrism and many more links and websites & I learned a lot through this project:
-- (<https://github.com/borakuskucu/Udacity-Landing-Page-Project/blob/f631249293799ebea314da8681521969e032fe51/js/Main.js>)
-- (<https://cs50.harvard.edu/web/2020/>)
-- (<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach>)
-- (<https://stackoverflow.com/questions/41085068/how-to-select-all-links-inside-of-nav-element>)
-- (<https://api.jquery.com/children/>)
-- (<https://www.w3schools.com/howto/howto_js_scroll_to_top.asp>)
+- [Previous Project](https://github.com/borakuskucu/Udacity-Landing-Page-Project/blob/f631249293799ebea314da8681521969e032fe51/js/Main.js)
+- [CS50 Course](https://cs50.harvard.edu/web/2020/)
+- [How to use Array forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+- [getBoundingClientRect Method](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect)
+- [how-to-select-all-links-inside-of-nav-element](https://stackoverflow.com/questions/41085068/how-to-select-all-links-inside-of-nav-element)
+- (https://api.jquery.com/children/)
+- (https://www.w3schools.com/howto/howto_js_scroll_to_top.asp)
+- (https://www.w3schools.com/jsref/prop_element_classlist.asp)
+- (https://www.w3schools.com/jsref/met_node_appendchild.asp)
+- (https://www.w3schools.com/jsref/met_document_createelement.asp)
+- (https://www.w3schools.com/jsref/met_document_createelement.asp)
+- (https://www.w3schools.com/jsref/met_element_addeventlistener.asp)
+- (https://www.w3schools.com/JSREF/met_document_createdocumentfragment.asp)
+- (https://www.w3schools.com/JSREF/met_document_createdocumentfragment.asp)
+- (https://www.w3schools.com/jsref/met_win_scrollto.asp)
 
 ## Description
 
