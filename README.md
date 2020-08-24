@@ -2,6 +2,10 @@
 
 - This is the landing page project readme.
 
+## What did we learned
+
+- In this project we converted the static web landing page to a dynamic page
+
 ## Helping resources
 
 - Starter code taken from udacity [repository](https://github.com/udacity/fend/tree/refresh-2019/projects/landing-page).
@@ -38,10 +42,6 @@
 - The scrolling effect
 - This project has the scope of converting a static web page in a single interactive page.
 - It uses javascript to dynamically create navbar links based on the content, when a section is in view it show the active state of that section.
-
-## What did we learned
-
-- In this project we converted the static web landing page to a dynamic page
 
 ## How to use the project
 
