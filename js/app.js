@@ -9,11 +9,7 @@ const sections = document.querySelectorAll('section'); // all section tag
 function buildMenuBar() {
     // initialize an li variable to put it later in the navigation to manipulate the loop list of sections names into it and using let for mutating the array
     let navList = document.createElement('li');
-    //let firstSecLink = true;
-    // looping over all sections by the method array.forEach(element => {...}); getting help from the next urls:
-    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
-    //https://stackoverflow.com/questions/41085068/how-to-select-all-links-inside-of-nav-element
-    //https://api.jquery.com/children/
+    // looping over all sections by the method array.forEach(element => {...});
 
     sections.forEach((section) => {
         // get the section id
@@ -58,10 +54,7 @@ just helper function
 document.addEventListener('scroll', () => {
     document.documentElement.dataset.scroll = window.scrollY;
 });
-/*to use the getBoundingClientRect method I will creat a variable to store back the dom rect object which will be returned to me
-getting the section position in the window
-to know an element's position after it transformed by CSS, or even still in transition animation, it is the best choice (maybe the only way).
-*/
+
 // start by return the top rect and determine the position of the section in the viewport
 const secRect = (section) => {
     return section.getBoundingClientRect().top;
@@ -74,7 +67,7 @@ const classRemove = (section) => {
     section.style.add = ('section.your-active-class');
 };
 
-// adding the active class with a green background color
+// adding the active class
 const classAdd = (isInView, section) => {
     if (isInView) {
         //remove the active class styling state
@@ -83,6 +76,12 @@ const classAdd = (isInView, section) => {
         section.style.add = ('section.your-active-class');
     }
 };
+
+/*
+to use the getBoundingClientRect method I will creat a variable to store back the dom rect object which will be returned to me
+getting the section position in the window
+to know an element's position after it transformed by CSS, or even still in transition animation, it is the best choice.
+*/
 
 //Manipulating the dom to set the active section function by looping over the sections
 const setBounding = () => {
