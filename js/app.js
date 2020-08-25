@@ -3,7 +3,7 @@
 /*window.history.scrollRestoration = 'manual';*/
 
 //Building the go to the top button:
-//https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
+//Getting Help from https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
 mybutton = document.getElementById('myBtn');
 
 // When the user scrolls down 40px from the top of the document, show the button
